@@ -24,7 +24,10 @@ if (navigator.getUserMedia) {
 
         // Create an object URL for the video stream and use this 
         // to set the video source.
-        vid.src = window.URL.createObjectURL(localMediaStream);
+        var binaryData = [];
+        binaryData.push(localMediaStream);
+        var blob = new Blob(binaryData, {type: "application/zip"});
+        vid.src = window.URL.createObjectURL(blob);//localMediaStream);
     },
 
     // Error Callback
