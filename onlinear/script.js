@@ -24,7 +24,7 @@ if (navigator.getUserMedia) {
         var videoTracks = localMediaStream.getVideoTracks();
           //console.log('Got stream with constraints:', constraints);
           //console.log('Using video device: ' + videoTracks[0].label);
-          stream.oninactive = function() {
+          localMediaStream.oninactive = function() {
             console.log('Stream inactive');
           };
           window.stream = localMediaStream; // make variable available to browser console
