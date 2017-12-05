@@ -45,7 +45,7 @@ window.onload = function () {
     }
    
     
-    MediaDevices.getUserMedia(constraints).
+    navigator.mediaDevices.getUserMedia(constraints).
     then(handleSuccess).catch(handleError);
 
     
