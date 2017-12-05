@@ -18,16 +18,26 @@ if (navigator.getUserMedia) {
 
     // Success Callback
     function(localMediaStream) {
-
         // Get a reference to the video element on the page.
         var vid = document.getElementById('camera-stream');
+        
+        var videoTracks = localMediaStream.getVideoTracks();
+          //console.log('Got stream with constraints:', constraints);
+          //console.log('Using video device: ' + videoTracks[0].label);
+          stream.oninactive = function() {
+            console.log('Stream inactive');
+          };
+          window.stream = localMediaStream; // make variable available to browser console
+          vid.srcObject = localMediaStream;
+        
+        /*
 
         // Create an object URL for the video stream and use this 
         // to set the video source.
         var binaryData = [];
         binaryData.push(localMediaStream);
         var blob = new Blob(binaryData, {type: "application/zip"});
-        vid.src = window.URL.createObjectURL(blob);//localMediaStream);
+        vid.src = window.URL.createObjectURL(blob);//localMediaStream);*/
     },
 
     // Error Callback
