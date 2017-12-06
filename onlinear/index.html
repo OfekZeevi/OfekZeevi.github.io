@@ -38,7 +38,7 @@
             ar.addEventListener('getMarker', function (ev) {
               console.log('found marker?', ev);
             });
-            ar.loadMarker('Data/patt.hiro', function (marker) {
+            ar.loadMarker('packages/jsartoolkit5-master/examples/Data/patt.hiro', function (marker) {
               console.log('loaded marker', marker);
               ar.process(img);
             });
