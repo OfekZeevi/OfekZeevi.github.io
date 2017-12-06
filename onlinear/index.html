@@ -50,7 +50,7 @@
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-        var renderer = new THREE.WebGLRenderer();
+        var renderer = new THREE.WebGLRenderer({alpha: true /*remove canvas' bg color*/});
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
 
@@ -60,6 +60,11 @@
         scene.add( cube );
 
         camera.position.z = 5;
+        
+        var spriteMap = new THREE.TextureLoader().load( "images/hiro.png" );
+        var spriteMaterial = new THREE.SpriteMaterial( { map: spriteMap, color: 0xffffff } );
+        var sprite = new THREE.Sprite( spriteMaterial );
+        scene.add( sprite );
 
         var animate = function () {
             requestAnimationFrame( animate );
