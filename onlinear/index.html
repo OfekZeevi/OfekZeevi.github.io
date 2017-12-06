@@ -56,18 +56,27 @@
 
         
         
-        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        var loader = new THREE.CubeTextureLoader();
-        loader.setPath( 'images/' );
+        var textureLoader = new THREE.TextureLoader();
 
-        var textureCube = loader.load( [
-            "hiro.png", "hiro.png",
-            "hiro.png", "hiro.png",
-            "hiro.png", "hiro.png"
-        ] );
+        var texture0 = textureLoader.load( 'images/hiro.png' );
+        var texture1 = textureLoader.load( 'images/hiro.png' );
+        var texture2 = textureLoader.load( 'images/hiro.png' );
+        var texture3 = textureLoader.load( 'images/hiro.png' );
+        var texture4 = textureLoader.load( 'images/hiro.png' );
+        var texture5 = textureLoader.load( 'images/hiro.png' );
 
-        var material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } );
-        var cube = new THREE.Mesh( geometry, material );
+        var materials = [
+            new THREE.MeshBasicMaterial( { map: texture0 } ),
+            new THREE.MeshBasicMaterial( { map: texture1 } ),
+            new THREE.MeshBasicMaterial( { map: texture2 } ),
+            new THREE.MeshBasicMaterial( { map: texture3 } ),
+            new THREE.MeshBasicMaterial( { map: texture4 } ),
+            new THREE.MeshBasicMaterial( { map: texture5 } )
+        ];
+        var faceMaterial = new THREE.MeshFaceMaterial( materials );
+
+        var geometry = new THREE.BoxGeometry( 20, 20, 20 );
+        var cube = new THREE.Mesh( geometry, faceMaterial );
         scene.add( cube );
         
         /*var geometry = new THREE.BoxGeometry( 1, 1, 1 );
