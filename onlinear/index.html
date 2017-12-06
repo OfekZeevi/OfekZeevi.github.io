@@ -54,17 +54,12 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
 
-        scene.background = new THREE.CubeTextureLoader()
-        .setPath( 'images/' )
-        .load( [
-            'hiro.png',
-            'hiro.png',
-            'hiro.png',
-            'hiro.png',
-            'hiro.png',
-            'hiro.png'
-        ] );
-
+        var texture = new THREE.TextureLoader().load( "checkered.png" );
+        var geometry = new THREE.BoxGeometry( 10, 10, 10 );
+        var material = new THREE.MeshBasicMaterial( { map: texture} );
+        var mesh = new THREE.Mesh( geometry, material );
+        scene.add(mesh);
+        camera.position.z = 5;
         
         /*var textureLoader = new THREE.TextureLoader();
 
