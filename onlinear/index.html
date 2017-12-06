@@ -54,9 +54,19 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
 
+        scene.background = new THREE.CubeTextureLoader()
+        .setPath( 'images/' )
+        .load( [
+            'hiro.png',
+            'hiro.png',
+            'hiro.png',
+            'hiro.png',
+            'hiro.png',
+            'hiro.png'
+        ] );
+
         
-        
-        var textureLoader = new THREE.TextureLoader();
+        /*var textureLoader = new THREE.TextureLoader();
 
         var texture0 = textureLoader.load( 'images/hiro.png' );
         var texture1 = textureLoader.load( 'images/hiro.png' );
@@ -77,7 +87,7 @@
 
         var geometry = new THREE.BoxGeometry( 20, 20, 20 );
         var cube = new THREE.Mesh( geometry, faceMaterial );
-        scene.add( cube );
+        scene.add( cube );*/
         
         /*var geometry = new THREE.BoxGeometry( 1, 1, 1 );
         var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
