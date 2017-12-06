@@ -54,7 +54,7 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
 
-        var texture = new THREE.TextureLoader().load( "checkered.png" );
+        var texture = new THREE.TextureLoader().load( "images/hiro.png" );
         var geometry = new THREE.BoxGeometry( 10, 10, 10 );
         var material = new THREE.MeshBasicMaterial( { map: texture} );
         var mesh = new THREE.Mesh( geometry, material );
