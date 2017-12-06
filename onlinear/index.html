@@ -11,18 +11,27 @@
     </div>
     
     <img src="packages/jsartoolkit5-master/examples/Data/img.jpg" id="my-image">
-    
-    <script src="script.js"></script>
+    <button type="button" onclick="processFrame()">Process Frame</button>
     <script src="packages/three.min.js"></script>
     <script src="packages/jsartoolkit5-master/build/artoolkit.min.js">
         // include optimized ASM.js build and JS API
     </script>
+    <script async src="packages/jsartoolkit5-master/js/artoolkit.three.js">
+        // - include Three.js helper API
+    </script>
+    <script async src="packages/jsartoolkit5-master/js/artoolkit.api.js">
+        // - include Three.js helper API
+    </script>
+    <script src="script.js"></script>
     <script>
-      var param = new ARCameraParam();
+      /*var param = new ARCameraParam();
 
+        var pos, matrix;
+        var ar;
+        
       param.onload = function () {
         var img = document.getElementById('my-image');
-        var ar = new ARController(img.width, img.height, param);
+        ar = new ARController(img.width, img.height, param);
 
         // Set pattern detection mode to detect both pattern markers and barcode markers.
         // This is more error-prone than detecting only pattern markers (default) or only barcode markers.
@@ -37,6 +46,8 @@
         });
         ar.addEventListener('getMarker', function (ev) {
           console.log('found marker?', ev);
+            pos = ev.data.marker.pos;
+            matrix = ev.data.matrix;
         });
         ar.loadMarker('packages/jsartoolkit5-master/examples/Data/patt.hiro', function (marker) {
           console.log('loaded marker', marker);
@@ -44,7 +55,7 @@
         });
     };
 
-      param.src = 'packages/jsartoolkit5-master/examples/Data/camera_para.dat';
+      param.src = 'packages/jsartoolkit5-master/examples/Data/camera_para.dat';*/
     </script>
     <script>
         var scene = new THREE.Scene();
@@ -109,6 +120,8 @@
 
         animate();
     </script>
+    
+    <canvas id="frame" width="885" height="759"></canvas>
 </body>
 </html>
 <!--<input type="file" accept="image/*" capture="camera" />-->
