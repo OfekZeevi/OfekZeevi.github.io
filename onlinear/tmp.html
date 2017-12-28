@@ -21,6 +21,9 @@
                 alert('hI');
             })}});*/
         AFRAME.scenes[0].addEventListener("markerFound", function() {alert("omg");});
+        
+        if(document.querySelectorAll("a-marker")[1].object3D.visible == true){alert("hey, guys!");}
+        // run above in loops!
     </script>
     <a-scene embedded>
   	<!--<a-marker-camera preset='custom' type='pattern' url="pattern-marker.patt" patternUrl="pattern-marker.patt">-->
