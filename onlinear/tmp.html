@@ -1,9 +1,10 @@
 <html>
-<body>
+<head>
 <!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
 <!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>-->
 <script src="packages/aframe-ar.js"></script>
+</head>
 <body style='margin : 0px; overflow: hidden; width: 100%;'>
 	<!--<a-scene embedded arjs='trackingMethod: best;'>
       <a-anchor hit-testing-enabled='true'>
@@ -11,6 +12,15 @@
       </a-anchor>
 		<a-camera-static/>
 	</a-scene>-->
+    
+    <script>
+    AFRAME.registerComponent('play-on-scan', { 
+        init: function () { 
+            var el = this.el; 
+            el.sceneEl.addEventListener('markerFound', function () { 
+                alert('hI');
+            })}});
+    </script>
     <a-scene embedded>
   	<!--<a-marker-camera preset='custom' type='pattern' url="pattern-marker.patt" patternUrl="pattern-marker.patt">-->
     <a-marker preset="custom" type='pattern' url="pattern-marker.patt">
