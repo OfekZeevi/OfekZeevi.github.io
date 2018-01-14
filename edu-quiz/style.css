@@ -7,7 +7,7 @@ body
     padding-top: 0px;
     font-family: 'Alef', sans-serif;
     
-    font-size: 3vh;
+    font-size: 5vh;
 }
 
 td, th
@@ -23,12 +23,12 @@ tr.winnerRow
 
 h1
 {
-    font-size: 5vh;
+    font-size: 7vh;
 }
 
 h2
 {
-    font-size: 4vh;
+    font-size: 6vh;
 }
 
 input + label
@@ -39,4 +39,10 @@ input + label
 input:checked + label
 {
     background-color: lightblue;
+}
+
+label
+{
+    width: 100%;
+    text-align: center;
 }
