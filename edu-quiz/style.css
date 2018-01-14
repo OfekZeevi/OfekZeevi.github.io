@@ -24,11 +24,14 @@ tr.winnerRow
 h1
 {
     font-size: 7vh;
+    margin: 0;
 }
 
 h2
 {
-    font-size: 6vh;
+    font-size: 5vh;
+    margin: 0;
+    margin-top: 2vh;
 }
 
 input + label
