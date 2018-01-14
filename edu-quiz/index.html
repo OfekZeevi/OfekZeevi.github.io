@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        <meta charset="utf-8"/>
+        
+        <title>ייקב ויתקין</title>
+    
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+    </head>
+    
+    <body>
+    
+        <h1>ברוכים הבאים לשאלון ייקב ויתקין!</h1>
+        
+        <span>ראשית, אנא מלאו מספר פרטים.</span><br/><br/>
+        
+        <form action="javascript:saveUserData()" class="pure-form" id="userDataForm">
+            <fieldset class="pure-group">
+                <!--<input type="text" name="name"
+                       pattern="^[א-ת]+ [א-ת]+[א-ת ]*$" 
+                       title="יש להקליד שם מלא, בעברית בלבד" 
+                       placeholder="שם מלא" 
+                       oninvalid="setCustomValidity('יש להקליד שם מלא, בעברית בלבד')" 
+                       oninput="try{setCustomValidity('')}catch(e){}"
+                       required
+                />
+                <input type="email" name="email" 
+                       pattern="[A-Za-z0-9._%+-]{1,64}@(?:[A-Za-z0-9-]{1,63}\.){1,8}[A-Za-z]{2,63}" 
+                       title="יש להקליד כתובת אי-מייל חוקית" 
+                       placeholder="כתובת אי-מייל" 
+                       oninvalid="setCustomValidity('יש להקליד כתובת אי-מייל חוקית')" 
+                       oninput="try{setCustomValidity('')}catch(e){}" 
+                       required
+                />-->
+                <button type="submit" class="pure-button pure-button-primary">שמור והמשך</button>
+            </fieldset>
+        </form>
+        
+        <script type="text/javascript">
+            
+            checkLocalStorage();
+            
+            function checkLocalStorage()
+            {
+                var str = "eduquiz_ls_test";
+                try
+                {
+                    localStorage.setItem(str, str);
+                    localStorage.removeItem(str);
+                }
+                catch (e)
+                {
+                    alert("דפדפן זה אינו תומך בטכנולוגיה הדרושה על-מנת להשתתף בחידון זה. אנא נסו לפתוח את החידון באפליקציית דפדפן אחרת או במכשיר אחר. עמכם הסליחה");
+                }
+            }
+            
+            function saveUserData()
+            {
+                /*var form = document.forms['userDataForm'];
+                var name = form['name'].value;
+                var email = form['email'].value;
+                
+                localStorage.setItem("userName", name);
+                localStorage.setItem("userEmail", email);*/
+                
+                window.location.href = "q1.html";
+            }
+            
+        </script>
+        
+    </body>
+
+</html>

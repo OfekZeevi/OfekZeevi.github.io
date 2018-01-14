@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Alef:400,700&subset=hebrew');
+
+body
+{
+    direction: rtl;
+    padding: 20px;
+    padding-top: 0px;
+    font-family: 'Alef', sans-serif;
+}
+
+td, th
+{
+    text-align: right;
+}
+
+tr.winnerRow
+{
+    font-weight: 800;
+    color: blue;
+}
