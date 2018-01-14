@@ -15,29 +15,30 @@
     
     <body>
     
-        <h1>שאלה 1!</h1>
+        <h1>שאלה <span id="qNum"></span>!</h1>
         
         <form action="javascript:saveAnswer()" class="pure-form" id="userAnswerForm">
                 
             <h2>מהו שמה של מדינת ישראל?</h2>
 
-            <label for="a1" class="pure-radio" onclick="clearValidation()">
-                <input type="radio" name="answer" id="a1" value="1" oninvalid="setCustomValidity('עליכם לבחור באחת התשובות לפני שתמשיכו')"  required>
+            <!--oninvalid="setCustomValidity('עליכם לבחור באחת התשובות לפני שתמשיכו')" required-->
+            <input type="radio" name="answer" id="a1" value="1" hidden>
+            <label for="a1" class="pure-radio">
                 ישראל
             </label>
 
-            <label for="a2" class="pure-radio" onclick="clearValidation()">
-                <input type="radio" name="answer" id="a2" value="0">
+            <input type="radio" name="answer" id="a2" value="0" hidden>
+            <label for="a2" class="pure-radio">
                 אוגנדה
             </label>
             
-            <label for="a3" class="pure-radio" onclick="clearValidation()">
-                <input type="radio" name="answer" id="a3" value="0">
+            <input type="radio" name="answer" id="a3" value="0" hidden>
+            <label for="a3" class="pure-radio">
                 גרמניה
             </label>
             
-            <label for="a4" class="pure-radio" onclick="clearValidation()">
-                <input type="radio" name="answer" id="a4" value="0">
+            <input type="radio" name="answer" id="a4" value="0" hidden>
+            <label for="a4" class="pure-radio">
                 הונדורס
             </label>
 

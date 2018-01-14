@@ -6,6 +6,8 @@ body
     padding: 20px;
     padding-top: 0px;
     font-family: 'Alef', sans-serif;
+    
+    font-size: 3vh;
 }
 
 td, th
@@ -17,4 +19,24 @@ tr.winnerRow
 {
     font-weight: 800;
     color: blue;
+}
+
+h1
+{
+    font-size: 5vh;
+}
+
+h2
+{
+    font-size: 4vh;
+}
+
+input + label
+{
+    background-color: rgba(0,0,0,0);
+}
+
+input:checked + label
+{
+    background-color: lightblue;
 }

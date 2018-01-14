@@ -1,17 +1,29 @@
 var QUESTION_COUNT = 3;
 
-function clearValidation()
+var qNum = getQNum();
+
+displayQNum();
+
+/*function clearValidation()
 {
     document.querySelector("#a1").setCustomValidity('');
-}
+}*/
 
 function saveAnswer()
 {
     var form = document.forms['userAnswerForm'];
 
-    var isCorrect = form['answer'].value * 1;
+    var val = form['answer'].value;
+    
+    if (val == "")
+    {
+        alert("עליכם לבחור באחת התשובות לפני שתמשיכו");
+        return;
+    }
+    
+    var isCorrect = val * 1;
 
-    var qNum = getQNum();
+    //var qNum = getQNum();
     localStorage.setItem("isCorrectQ" + qNum, isCorrect);
 
     var nextQNum = qNum + 1;
@@ -32,6 +44,11 @@ function getQNum()
     var name = page.split(".")[0];
     var qNum = name.substr(1) * 1;
     return qNum;
+}
+
+function displayQNum()
+{
+    document.querySelector("span#qNum").innerHTML = qNum;
 }
 
 function finishQuiz()
