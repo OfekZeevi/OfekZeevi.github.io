@@ -1,51 +1,36 @@
 <html>
-<head>
-<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>-->
-<script src="packages/aframe-ar.js"></script>
-</head>
-<body style='margin : 0px; overflow: hidden; width: 100%;'>
-	<!--<a-scene embedded arjs='trackingMethod: best;'>
-      <a-anchor hit-testing-enabled='true'>
-   		<a-box position='0 0.5 0' material='opacity: 1;'></a-box>
-      </a-anchor>
-		<a-camera-static/>
-	</a-scene>-->
     
-    <script>
-    /*AFRAME.registerComponent('play-on-scan', { 
-        init: function () { 
-            var el = this.el; 
-            el.sceneEl.addEventListener('markerFound', function () { 
-                alert('hI');
-            })}});*/
-        //AFRAME.scenes[0].addEventListener("markerFound", function() {alert("omg");});
+    <head>
+    
+        <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+        <script src="packages/aframe-ar.js"></script>
         
-        //if(document.querySelectorAll("a-marker")[1].object3D.visible == true){alert("hey, guys!");}
-        // run above in loops!
-    </script>
-    <a-scene embedded>
-  	<!--<a-marker-camera preset='custom' type='pattern' url="pattern-marker.patt" patternUrl="pattern-marker.patt">-->
-    <a-marker preset="custom" type='pattern' url="number_1_logoed.patt">
-        <!--<a-box position='0 0.5 0' material='src: images/logoTriangle.png'></a-box>-->
-        <a-plane position='0 0 -1' rotation="-85 90 0" material='src: images/Arrow_NoBG.png; transparent: true;' scale='1.0 1.0'></a-plane>
-        <a-plane position='0 0.1 0' rotation="-20 0 0" material='src: images/Creature_NoBG.png; transparent: true; side: double;' scale='2.0 2.0'></a-plane>
-    </a-marker>
+    </head>
     
-    <a-marker preset="custom" type='pattern' url="number_2_logoed.patt">
-        <a-plane position='1.5 0 0' rotation="-85 0 0" material='src: images/Arrow_NoBG.png; transparent: true;' scale='1.0 1.0'></a-plane>
-        <a-plane position='0 0.1 0' rotation="-20 0 0" material='src: images/Creature_NoBG.png; transparent: true; side: double;' scale='2.0 2.0'></a-plane>
-  	</a-marker>
+    <body style='margin : 0px; overflow: hidden; width: 100%;'>
+
+        <a-scene embedded>
+
+            <a-marker preset="custom" type='pattern' url="markers/marker-1.patt">
+                <a-plane position='0 0 -1' rotation="-85 90 0" material='src: images/Arrow_NoBG.png; transparent: true;' scale='1.0 1.0'></a-plane>
+                <a-plane position='0 0.1 0' rotation="-20 0 0" material='src: images/Creature_NoBG.png; transparent: true; side: double;' scale='2.0 2.0'></a-plane>
+            </a-marker>
+
+            <a-marker preset="custom" type='pattern' url="markers/marker-2.patt">
+                <a-plane position='1.5 0 0' rotation="-85 0 0" material='src: images/Arrow_NoBG.png; transparent: true;' scale='1.0 1.0'></a-plane>
+                <a-plane position='0 0.1 0' rotation="-20 0 0" material='src: images/Creature_NoBG.png; transparent: true; side: double;' scale='2.0 2.0'></a-plane>
+            </a-marker>
+
+            <a-marker preset="hiro">
+                <a-box position='0 0.1 0' material='color: green; src: images/hiro.png'></a-box>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+
+        </a-scene>
+
+        <script type="text/javascript" src="prints.js"></script>
+
+    </body>
     
-    <a-marker preset="hiro">
-        <!--<a-box position='0 0.5 0' material='src: images/logoTriangle.png'></a-box>-->
-        <a-box position='0 0.1 0' material='color: green; src: images/hiro.png'></a-box>
-  	 </a-marker>
-  	<a-entity camera></a-entity>
-    </a-scene>
-    
-    <script type="text/javascript" src="prints.js"></script>
-    
-</body>
 </html>
