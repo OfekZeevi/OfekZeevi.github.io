@@ -114,7 +114,7 @@ function remove(array, element)
 function getMinXPosIndex(arr, indexes)
 {
     var minVal = arr[indexes[0]].position.x;
-    var minIndex = 0;
+    var minIndex = indexes[0];
     var index, val;
     for (var i = 1, len = indexes.length; i < len; i++)
     {
