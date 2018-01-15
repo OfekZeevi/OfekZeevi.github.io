@@ -98,7 +98,7 @@ function getIndexOrderByXPos(arr)
     for (var i = 0; i < len; i++)
     {
         index = getMinXPosIndex(arr, indexes);
-        order.push(index);
+        order.push(index + 1);
         remove(indexes, index);
     }
     
