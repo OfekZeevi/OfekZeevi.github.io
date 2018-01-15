@@ -13,11 +13,16 @@ var CORRECT_ORDER = [
     [4, 1, 2, 3]
 ];
 
+var finishedPuzzles = [];
+for (var i = 0, len = CORRECT_ORDER.length; i < len; i++)
+{
+    finishedPuzzles.push(false);
+}
+
 var loop = setInterval(loopFunc, 100);
 
 var dir;
 var firstTimeInvisible = true;
-var firstTimeAlert = true;
 function loopFunc()
 {
     if (allVisible(objs))
@@ -30,27 +35,18 @@ function loopFunc()
             var order = getIndexOrderByXPos(objs);
             if (compareArrays(order, CORRECT_ORDER[dir]))
             {
-                if (firstTimeAlert)
+                if (!finishedPuzzles[dir])
                 {
                     alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
-                    firstTimeAlert = false;
+                    finishedPuzzles[dir] = true;
                 }
             }
-            else
-            {
-                firstTimeAlert = true;
-            }
-        }
-        else
-        {
-            firstTimeAlert = true;
         }
     }
     else if (firstTimeInvisible)
     {
         console.log("NOT ALL MARKERS VISIBLE");
         firstTimeInvisible = false;
-        firstTimeAlert = true;
     }
 }
 
