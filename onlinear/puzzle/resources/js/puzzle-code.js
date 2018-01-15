@@ -28,7 +28,7 @@ function loopFunc()
         if (dir !== false)
         {
             var order = getIndexOrderByXPos(objs);
-            if (order == CORRECT_ORDER[dir])
+            if (compareArrays(order, CORRECT_ORDER[dir]))
             {
                 if (firstTimeAlert)
                 {
@@ -59,6 +59,24 @@ function allVisible(arr)
     for (var i = 0, len = arr.length; i < len; i++)
     {
         if (!arr[i].visible)
+        {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function compareArrays(arr1, arr2)
+{
+    if (arr1.length != arr2.length)
+    {
+        return false;
+    }
+    
+    for (var i = 0, len = arr1.length; i < len; i++)
+    {
+        if (arr1[i] != arr2[i])
         {
             return false;
         }
