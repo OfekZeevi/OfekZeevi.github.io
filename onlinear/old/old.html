@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Online AR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="video-container">
+        <video id="camera-stream" width="500" autoplay playsinline></video>
+    </div>
+    
+    <img src="packages/jsartoolkit5-master/examples/Data/img.jpg" id="my-image">
+    <button type="button" onclick="processFrame()">Process Frame</button>
+    <script src="packages/three.min.js"></script>
+    <script src="packages/jsartoolkit5-master/build/artoolkit.min.js">
+        // include optimized ASM.js build and JS API
+    </script>
+    <script async src="packages/jsartoolkit5-master/js/artoolkit.three.js">
+        // - include Three.js helper API
+    </script>
+    <script async src="packages/jsartoolkit5-master/js/artoolkit.api.js">
+        // - include Three.js helper API
+    </script>
+    <script src="script.js"></script>
+    <script>
+      /*var param = new ARCameraParam();
+
+        var pos, matrix;
+        var ar;
+        
+      param.onload = function () {
+        var img = document.getElementById('my-image');
+        ar = new ARController(img.width, img.height, param);
+
+        // Set pattern detection mode to detect both pattern markers and barcode markers.
+        // This is more error-prone than detecting only pattern markers (default) or only barcode markers.
+        //
+        // For barcode markers, use artoolkit.AR_MATRIX_CODE_DETECTION
+        // For pattern markers, use artoolkit.AR_TEMPLATE_MATCHING_COLOR
+        //
+        ar.setPatternDetectionMode(artoolkit.AR_TEMPLATE_MATCHING_COLOR_AND_MATRIX);
+
+        ar.addEventListener('markerNum', function (ev) {
+          console.log('got markers', markerNum);
+        });
+        ar.addEventListener('getMarker', function (ev) {
+          console.log('found marker?', ev);
+            pos = ev.data.marker.pos;
+            matrix = ev.data.matrix;
+        });
+        ar.loadMarker('packages/jsartoolkit5-master/examples/Data/patt.hiro', function (marker) {
+          console.log('loaded marker', marker);
+          ar.process(img);
+        });
+    };
+
+      param.src = 'packages/jsartoolkit5-master/examples/Data/camera_para.dat';*/
+    </script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+        var renderer = new THREE.WebGLRenderer({alpha: true /*remove canvas' bg color*/});
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        var texture = new THREE.TextureLoader().load( "images/hiro.png" );
+        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        var material = new THREE.MeshBasicMaterial( { map: texture} );
+        var cube = new THREE.Mesh( geometry, material );
+        scene.add(cube);
+        camera.position.z = 5;
+        
+        /*var textureLoader = new THREE.TextureLoader();
+
+        var texture0 = textureLoader.load( 'images/hiro.png' );
+        var texture1 = textureLoader.load( 'images/hiro.png' );
+        var texture2 = textureLoader.load( 'images/hiro.png' );
+        var texture3 = textureLoader.load( 'images/hiro.png' );
+        var texture4 = textureLoader.load( 'images/hiro.png' );
+        var texture5 = textureLoader.load( 'images/hiro.png' );
+
+        var materials = [
+            new THREE.MeshBasicMaterial( { map: texture0 } ),
+            new THREE.MeshBasicMaterial( { map: texture1 } ),
+            new THREE.MeshBasicMaterial( { map: texture2 } ),
+            new THREE.MeshBasicMaterial( { map: texture3 } ),
+            new THREE.MeshBasicMaterial( { map: texture4 } ),
+            new THREE.MeshBasicMaterial( { map: texture5 } )
+        ];
+        var faceMaterial = new THREE.MeshFaceMaterial( materials );
+
+        var geometry = new THREE.BoxGeometry( 20, 20, 20 );
+        var cube = new THREE.Mesh( geometry, faceMaterial );
+        scene.add( cube );*/
+        
+        /*var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        var cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+        camera.position.z = 5;*/
+        
+        
+        
+        /*var spriteMap = new THREE.TextureLoader().load( "images/hiro.png" );
+        var spriteMaterial = new THREE.SpriteMaterial( { map: spriteMap, color: 0xffffff } );
+        var sprite = new THREE.Sprite( spriteMaterial );
+        scene.add( sprite );*/
+
+        var animate = function () {
+            requestAnimationFrame( animate );
+
+            //cube.rotation.x += 0.1;
+            //cube.rotation.y += 0.1;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+    </script>
+    
+    <canvas id="frame" width="885" height="759"></canvas>
+</body>
+</html>
+<!--<input type="file" accept="image/*" capture="camera" />-->
