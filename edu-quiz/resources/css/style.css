@@ -117,3 +117,8 @@ body.health .bg-img-right
     padding-right: 5%;
     box-sizing: border-box;
 }
+
+.desc
+{
+    font-size: 3vh;
+}
