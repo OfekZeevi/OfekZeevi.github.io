@@ -11,37 +11,30 @@
         <title>ייקב ויתקין</title>
     
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
         
     </head>
     
     <body>
     
-        <h1>ברוכים הבאים לשאלון ייקב ויתקין!</h1>
+        <h1>חידון בנושא תזונה בריאה ואיכות הסביבה</h1>
         
-        <span>ראשית, אנא מלאו מספר פרטים.</span><br/><br/>
+        <h2>ברוכים הבאים!</h2>
         
-        <form action="javascript:saveUserData()" class="pure-form" id="userDataForm">
-            <fieldset class="pure-group">
-                <!--<input type="text" name="name"
-                       pattern="^[א-ת]+ [א-ת]+[א-ת ]*$" 
-                       title="יש להקליד שם מלא, בעברית בלבד" 
-                       placeholder="שם מלא" 
-                       oninvalid="setCustomValidity('יש להקליד שם מלא, בעברית בלבד')" 
-                       oninput="try{setCustomValidity('')}catch(e){}"
-                       required
-                />
-                <input type="email" name="email" 
-                       pattern="[A-Za-z0-9._%+-]{1,64}@(?:[A-Za-z0-9-]{1,63}\.){1,8}[A-Za-z]{2,63}" 
-                       title="יש להקליד כתובת אי-מייל חוקית" 
-                       placeholder="כתובת אי-מייל" 
-                       oninvalid="setCustomValidity('יש להקליד כתובת אי-מייל חוקית')" 
-                       oninput="try{setCustomValidity('')}catch(e){}" 
-                       required
-                />-->
-                <button type="submit" class="pure-button pure-button-primary">שמור והמשך</button>
-            </fieldset>
-        </form>
+        <p>לרגל יום השיא הנערך בבית הספר בנושא בריאות ואיכות הסביבה הכנו לכם חידון בן 20 שאלות.</p>
+        <p>פתרו את החידון. תוכלו לעשות זאת יחד עם המשפחה ולבדוק יחדיו את הידע שלכם.</p>
+        <p>בסוף החידון תגלו כמה תשובות נכונות הצלחתם לענות.</p>
+        <p>יש רק תשובה נכונה אחת בכל שאלה.</p>
+        <p>בהצלחה!</p>
+        
+        <p class="centered-p">
+            <span>מחלקת הבריאות ואיכות הסביבה</span><br/>
+            <span>מועצה איזורית מנשה</span>
+        </p>
+        
+        <p class="centered-p"><u>פיתוח והפקה: Out4In - בוטיק של פתרונות מיוחדים</u></p>
+        
+        <button type="button" class="pure-button pure-button-primary" onclick="startQuiz()">התחילו בחידון!</button>
         
         <script type="text/javascript">
             
@@ -61,16 +54,9 @@
                 }
             }
             
-            function saveUserData()
+            function startQuiz()
             {
-                /*var form = document.forms['userDataForm'];
-                var name = form['name'].value;
-                var email = form['email'].value;
-                
-                localStorage.setItem("userName", name);
-                localStorage.setItem("userEmail", email);*/
-                
-                window.location.href = "q1.html";
+                window.location.href = "pages/q1.html";
             }
             
         </script>

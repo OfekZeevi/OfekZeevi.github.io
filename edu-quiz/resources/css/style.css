@@ -25,6 +25,7 @@ h1
 {
     font-size: 7vh;
     margin: 0;
+    text-align: center;
 }
 
 h2
@@ -45,6 +46,12 @@ input:checked + label
 }
 
 label
+{
+    width: 100%;
+    text-align: center;
+}
+
+.centered-p
 {
     width: 100%;
     text-align: center;
