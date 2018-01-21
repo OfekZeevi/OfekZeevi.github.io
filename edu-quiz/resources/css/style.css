@@ -122,3 +122,8 @@ body.health .bg-img-right
 {
     font-size: 3vh;
 }
+
+.correct-sign
+{
+    font-weight: 800;
+}
