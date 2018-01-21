@@ -1,6 +1,6 @@
 var QUESTION_COUNT = 20;
 
-var CORRECT_SIGN = '✓';
+var CORRECT_SIGN = '✔';
 var INCORRECT_SIGN = '✗';
 
 updateQuestions();
