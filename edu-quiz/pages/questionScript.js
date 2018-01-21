@@ -1,4 +1,9 @@
 var QUESTION_COUNT = 3;
+var FORM_ID = "userAnswerForm";
+var ANSWER_INPUT_NAME = "answer";
+
+var elm_form = document.forms[FORM_ID];
+var elm_title = document.querySelector("title");
 
 var qNum = getQNum();
 
@@ -11,9 +16,9 @@ displayQNum();
 
 function saveAnswer()
 {
-    var form = document.forms['userAnswerForm'];
+    
 
-    var val = form['answer'].value;
+    var val = elm_form[ANSWER_INPUT_NAME].value;
     
     if (val == "")
     {
@@ -49,6 +54,7 @@ function getQNum()
 function displayQNum()
 {
     document.querySelector("span#qNum").innerHTML = qNum;
+    elm_title.innerHTML = elm_title.innerHTML.replace("{{qNum}}", qNum);
 }
 
 function finishQuiz()

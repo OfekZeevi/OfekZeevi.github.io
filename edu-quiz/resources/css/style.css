@@ -10,6 +10,16 @@ body
     font-size: 4vh;
 }
 
+body.health
+{
+    /*padding: 0 10%;
+    background: url('../images/health-q-bg-2.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+
 td, th
 {
     text-align: right;
@@ -42,7 +52,7 @@ input + label
 
 input:checked + label
 {
-    background-color: lightblue;
+    background-color: rgba(50, 100, 200, 0.5);
 }
 
 label
@@ -56,3 +66,46 @@ label
     width: 100%;
     text-align: center;
 }
+
+.centering-div
+{
+    text-align: center;
+}
+
+#moatza-logo
+{
+    width: 95%;
+}
+
+.bg-img
+{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+}
+
+.bg-img-left
+{
+    left: 0;
+}
+
+.bg-img-right
+{
+    right: 0;
+}
+
+.content
+{
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+

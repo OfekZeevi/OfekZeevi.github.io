@@ -6,45 +6,51 @@
         
         <meta charset="utf-8"/>
         
-        <title>שאלה 1 | חידון בריאות ואיכות הסביבה</title>
+        <title>שאלה {{qNum}} | חידון יום השיא</title>
     
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
         
     </head>
     
-    <body>
+    <body class="health">
     
-        <h1>שאלה <span id="qNum"></span>!</h1>
+        <img src="../resources/images/health-q-bg-side-1.png" class="bg-img bg-img-left"/>
+        <img src="../resources/images/health-q-bg-side-2.png" class="bg-img bg-img-right"/>
         
-        <form action="javascript:saveAnswer()" class="pure-form" id="userAnswerForm">
-                
-            <h2>מהו שמה של מדינת ישראל?</h2>
+        <div class="content">
+            <h1>שאלה <span id="qNum"></span></h1>
 
-            <!--oninvalid="setCustomValidity('עליכם לבחור באחת התשובות לפני שתמשיכו')" required-->
-            <input type="radio" name="answer" id="a1" value="1" hidden>
-            <label for="a1" class="pure-radio">
-                ישראל
-            </label>
-            <hr/>
-            <input type="radio" name="answer" id="a2" value="0" hidden>
-            <label for="a2" class="pure-radio">
-                אוגנדה
-            </label>
-            <hr/>
-            <input type="radio" name="answer" id="a3" value="0" hidden>
-            <label for="a3" class="pure-radio">
-                גרמניה
-            </label>
-            <hr/>
-            <input type="radio" name="answer" id="a4" value="0" hidden>
-            <label for="a4" class="pure-radio">
-                הונדורס
-            </label>
+            <form action="javascript:saveAnswer()" class="pure-form" id="userAnswerForm">
 
-            <br/><button type="submit" class="pure-button pure-button-primary">השב והמשך</button>
+                <h2>
+                    מה מבין השמנים הבאים הוא יוצא דופן?
+                </h2>
 
-        </form>
+                <input type="radio" name="answer" id="a1" value="0" hidden>
+                <label for="a1" class="pure-radio">
+                    אבוקדו
+                </label>
+                <hr/>
+                <input type="radio" name="answer" id="a2" value="0" hidden>
+                <label for="a2" class="pure-radio">
+                    טחינה
+                </label>
+                <hr/>
+                <input type="radio" name="answer" id="a3" value="0" hidden>
+                <label for="a3" class="pure-radio">
+                    חמאה
+                </label>
+                <hr/>
+                <input type="radio" name="answer" id="a4" value="1" hidden>
+                <label for="a4" class="pure-radio">
+                    מרגרינה
+                </label>
+
+                <button type="submit" class="pure-button pure-button-primary">השב והמשך</button>
+
+            </form>
+        </div>
         
         <script type="text/javascript" src="questionScript.js"></script>
         

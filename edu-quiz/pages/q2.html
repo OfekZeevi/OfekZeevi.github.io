@@ -6,7 +6,7 @@
         
         <meta charset="utf-8"/>
         
-        <title>שאלה 2 | חידון בריאות ואיכות הסביבה</title>
+        <title>שאלה {{qNum}} | חידון יום השיא</title>
     
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
@@ -15,31 +15,22 @@
     
     <body>
     
-        <h1>שאלה <span id="qNum"></span>!</h1>
+        <h1>שאלה <span id="qNum"></span></h1>
         
         <form action="javascript:saveAnswer()" class="pure-form" id="userAnswerForm">
                 
-            <h2>מאיזה פרי עושים יין ענבים?</h2>
+            <h2>
+                כאשר אנחנו צמאים, כדאי לשתות ויטמינצ'יק (תרכיז מיץ), מפני שזה טעים ומכיל ויטמינים.
+            </h2>
             
-            <!--oninvalid="setCustomValidity('עליכם לבחור באחת התשובות לפני שתמשיכו')"  required-->
             <input type="radio" name="answer" id="a1" value="0" hidden>
             <label for="a1" class="pure-radio">
-                אגסים
+                נכון
             </label>
             <hr/>
             <input type="radio" name="answer" id="a2" value="1" hidden>
             <label for="a2" class="pure-radio">
-                ענבים
-            </label>
-            <hr/>
-            <input type="radio" name="answer" id="a3" value="0" hidden>
-            <label for="a3" class="pure-radio">
-                תותים
-            </label>
-            <hr/>
-            <input type="radio" name="answer" id="a4" value="0" hidden>
-            <label for="a4" class="pure-radio">
-                בננות
+                לא נכון
             </label>
 
             <br/><button type="submit" class="pure-button pure-button-primary">השב והמשך</button>
