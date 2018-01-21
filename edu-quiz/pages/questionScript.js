@@ -1,4 +1,4 @@
-var QUESTION_COUNT = 3;
+var QUESTION_COUNT = 7;
 var FORM_ID = "userAnswerForm";
 var ANSWER_INPUT_NAME = "answer";
 

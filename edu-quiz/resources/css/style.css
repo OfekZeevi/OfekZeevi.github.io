@@ -10,14 +10,13 @@ body
     font-size: 4vh;
 }
 
-body.health
+body.envi
 {
-    /*padding: 0 10%;
-    background: url('../images/health-q-bg-2.png') no-repeat center center fixed;
+    background: url(../images/envi-q-bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;*/
+    background-size: cover;
 }
 
 td, th
@@ -85,12 +84,12 @@ label
     z-index: 0;
 }
 
-.bg-img-left
+body.health .bg-img-left
 {
     left: 0;
 }
 
-.bg-img-right
+body.health .bg-img-right
 {
     right: 0;
 }
@@ -108,4 +107,3 @@ label
     padding-right: 5%;
     box-sizing: border-box;
 }
-
