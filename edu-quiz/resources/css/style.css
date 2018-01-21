@@ -7,7 +7,7 @@ body
     padding-top: 0px;
     font-family: 'Alef', sans-serif;
     
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 td, th
@@ -23,14 +23,14 @@ tr.winnerRow
 
 h1
 {
-    font-size: 7vh;
+    font-size: 6vh;
     margin: 0;
     text-align: center;
 }
 
 h2
 {
-    font-size: 5vh;
+    font-size: 4vh;
     margin: 0;
     margin-top: 2vh;
 }
