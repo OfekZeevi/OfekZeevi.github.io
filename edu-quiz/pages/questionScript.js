@@ -9,15 +9,8 @@ var qNum = getQNum();
 
 displayQNum();
 
-/*function clearValidation()
-{
-    document.querySelector("#a1").setCustomValidity('');
-}*/
-
 function saveAnswer()
 {
-    
-
     var val = elm_form[ANSWER_INPUT_NAME].value;
     
     if (val == "")
@@ -28,7 +21,6 @@ function saveAnswer()
     
     var isCorrect = val * 1;
 
-    //var qNum = getQNum();
     localStorage.setItem("isCorrectQ" + qNum, isCorrect);
 
     var nextQNum = qNum + 1;
@@ -70,5 +62,4 @@ function finishQuiz()
     }
     localStorage.setItem("finalScore", score);
     window.location.href = "score.html";
-    //window.location.href = "addScore.php?name=" + name + "&email=" + email + "&score=" + score;
 }
