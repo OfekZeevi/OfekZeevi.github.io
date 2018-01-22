@@ -37,8 +37,10 @@ function loopFunc()
             {
                 if (!finishedPuzzles[dir])
                 {
-                    alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
                     finishedPuzzles[dir] = true;
+                    setTimeout(function() {
+                        alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
+                    }, 3000);
                 }
             }
         }
