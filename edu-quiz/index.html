@@ -13,6 +13,10 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
         
+        <link rel="preload" href="resources/images/envi-q-bg.jpg"/>
+        <link rel="preload" href="resources/images/health-q-bg-side-1.png"/>
+        <link rel="preload" href="resources/images/health-q-bg-side-2.png"/>
+        
     </head>
     
     <body class="non-q-page">
@@ -42,6 +46,10 @@
             
             checkLocalStorage();
             
+            //var img = new Image();
+            //img.src = "resources/images/envi-q-bg.jpg";
+            //img.onload = loadImage2;
+            
             function checkLocalStorage()
             {
                 var str = "eduquiz_ls_test";
@@ -60,6 +68,11 @@
             {
                 window.location.href = "pages/q1.html";
             }
+            
+            /*function loadImage2()
+            {
+                img.src = "resources/images/health-q-bg-side-1.png";
+            }*/
             
         </script>
         
