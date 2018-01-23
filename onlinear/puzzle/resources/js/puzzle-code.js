@@ -1,5 +1,7 @@
 var mrkrs = document.querySelectorAll("a-marker");
 
+var elm_doneBtn = document.querySelector("#doneBtn");
+
 var objs = [];
 for (var i = 0, len = mrkrs.length; i < len; i++)
 {
@@ -199,5 +201,43 @@ function inDegRange(threshold, range, val)
     else
     {
         return (minOk && maxOk);
+    }
+}
+
+function checkIfFinished()
+{
+    if (isAllPuzzlesFinished())
+    {
+        alert("השלמת את כל הפאזלים! עתה, חשב את סכום 16 הספרות המוסתרות על חלקי הפאזל, ואז לחץ על כפתור ה\"סיום\" בפינת המסך.");
+        elm_doneBtn.style.display = "block";
+    }
+}
+
+function isAllPuzzlesFinished()
+{
+    for (var i = 0, len = finishedPuzzles.length; i < len; i++)
+    {
+        if (!finishedPuzzles[i])
+        {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function done()
+{
+    var qTxt = "מהו סכום כל 16 הספרות הנסתרות?";
+    var errTxt = "טעות. בדוק את עצמך ולחץ שוב על הכפתור";
+    var correctTxt = "כל הכבוד! סיימת את המשחק!";
+    
+    if (prompt(qTxt) == "83")
+    {
+        alert(correctTxt);
+    }
+    else
+    {
+        alert(errTxt);
     }
 }

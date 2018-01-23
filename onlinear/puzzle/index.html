@@ -2,6 +2,8 @@
     
     <head>
     
+        <meta charset="utf-8"/>
+        
         <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
         <script src="../shared-resources/packages/aframe-ar.js"></script>
         <!--<script src="https://unpkg.com/aframe-cubemap-component@0.1.2/dist/aframe-cubemap-component.min.js"></script> -->
@@ -68,10 +70,18 @@
 
             <a-entity camera></a-entity>
 
-        </a-scene>-->
+        </a-scene>
 
+        <button type="button" id="doneBtn" style="position: absolute; left: 0; bottom: 0; display: none;" onclick="done()">סיום</button>
+        
         <script type="text/javascript" src="resources/js/puzzle-code.js"></script>
 
+        <script type="text/javascript">
+        
+            alert("עליכם להרכיב 4 פאזלים וירטואליים. כוונו את המצלמה אל הקודים, סובבו אותם על מנת לראות תמונות שונות, והרכיבו כל תמונה בעזרת הסידור הנכון של החלקים. בסיום, חשבו את סכום כל 16 הספרות המוחבאות על חלקי הפאזל. בהצלחה!");
+        
+        </script>
+        
     </body>
     
 </html>
