@@ -42,6 +42,7 @@ function loopFunc()
                     finishedPuzzles[dir] = true;
                     setTimeout(function() {
                         alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
+                        checkIfFinished();
                     }, 3000);
                 }
             }
