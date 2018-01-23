@@ -41,7 +41,8 @@ function loopFunc()
                 {
                     finishedPuzzles[dir] = true;
                     setTimeout(function() {
-                        alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
+                        //alert("כל הכבוד! השלמתם את פאזל " + (dir + 1) + " בהצלחה!");
+                        alert("כל הכבוד! השלמתם את הפאזל בהצלחה!");
                         checkIfFinished();
                     }, 3000);
                 }
@@ -209,7 +210,7 @@ function checkIfFinished()
 {
     if (isAllPuzzlesFinished())
     {
-        alert("השלמת את כל הפאזלים! עתה, חשב את סכום 16 הספרות המוסתרות על חלקי הפאזל, ואז לחץ על כפתור ה\"סיום\" בפינת המסך.");
+        alert("השלמתם את כל הפאזלים! עתה, חשבו את סכום 16 הספרות המוסתרות על חלקי הפאזל, ואז לחצו על כפתור ה\"סיום\" בפינת המסך.");
         elm_doneBtn.style.display = "block";
     }
 }
@@ -230,8 +231,8 @@ function isAllPuzzlesFinished()
 function done()
 {
     var qTxt = "מהו סכום כל 16 הספרות הנסתרות?";
-    var errTxt = "טעות. בדוק את עצמך ולחץ שוב על הכפתור";
-    var correctTxt = "כל הכבוד! סיימת את המשחק!";
+    var errTxt = "טעות. בדקו את עצמכם ולחצו שוב על הכפתור";
+    var correctTxt = "כל הכבוד! סיימתם את המשחק!";
     
     if (prompt(qTxt) == "83")
     {
