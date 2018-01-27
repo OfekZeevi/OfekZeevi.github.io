@@ -232,7 +232,7 @@ function done()
 {
     var qTxt = "מהו סכום כל 16 הספרות הנסתרות?";
     var errTxt = "טעות. בדקו את עצמכם ולחצו שוב על הכפתור";
-    var correctTxt = "כל הכבוד! סיימתם את המשחק!";
+    var correctTxt = "התשובה נכונה! כל הכבוד!";
     
     if (prompt(qTxt) == "83")
     {
