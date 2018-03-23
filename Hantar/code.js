@@ -396,8 +396,8 @@ function show_screen(screen_id)
 
 function share_to_whatsapp()
 {
-    var list_str = get_session_num_lists()[0].join("\\n");
-    var msg = "המספרים+הבאים+עדיין+לא+הודיעו+לי:\\n" + list_str;
+    var list_str = get_session_num_lists()[0].join("%0A");
+    var msg = "המספרים+הבאים+עדיין+לא+הודיעו+לי:%0A" + list_str;
     var link = "whatsapp://send?text=" + msg;
     window.open(link);
 }
