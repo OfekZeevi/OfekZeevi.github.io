@@ -13,11 +13,26 @@
     
     <body>
     
-        <div id="main-menu">
+        <div id="main-menu" class="screen">
         
             <button onclick="cont_prev_session()">Continue Previous Session...</button>
             
             <button onclick="new_session()">Start a New Session!</button>
+        
+        </div>
+        
+        <div id="main-screen" class="screen">
+            
+            <button type="button" onclick="show_screen('main-menu')">Main Menu</button>
+            
+            <input type="tel" id="num-input" placeholder="Enter number...">
+            <button type="button" onclick="mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''">Mark</button>
+            
+            <h2>Unmarked</h2>
+            <ul id="unmarked-list" onclick="mark_num(event.srcElement.value)"></ul>
+            
+            <h2>Marked</h2>
+            <ul id="marked-list" onclick="unmark_num(event.srcElement.value)"></ul>
         
         </div>
         

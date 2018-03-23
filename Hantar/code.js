@@ -1,10 +1,30 @@
 var LS_PREFIX = "hantar_";
 var LS_KEY_SESSION_ID = LS_PREFIX + "session_id";
-var LS_KEY_LIST_SIGNATURE = LS_PREFIX + "list_signature";
+var LS_KEY_UNMARKED_LIST = LS_PREFIX + "unmarked_list";
+var LS_KEY_MARKED_LIST = LS_PREFIX + "marked_list";
 
-var LIST_SIGNATURE_REGEX = /^(?:(?:^|,)(\d+(-\d+)?))+$/g
+var LIST_SIGNATURE_REGEX = /^(?:(?:^|,)(\d+(-\d+)?))+$/g;
+
+var ELM_ID_LISTS = ["unmarked-list", "marked-list"];
+
+var ELM_ID_MAIN_MENU = "main-menu";
+var ELM_ID_MAIN_SCREEN = "main-screen";
+
+var LIST_ITEM_TAG = "li";
+
+init();
 
 function log(str) { console.log(str); }
+
+function load(key)
+{
+    return localStorage.getItem(key);
+}
+
+function save(key, value)
+{
+    localStorage.setItem(key, value);
+}
 
 function range(start, end, step=1)
 {
@@ -32,6 +52,11 @@ function sort(arr, remove_dups=false)
 
 function gen_num_list(list_signature)
 {
+    if (list_signature == "")
+    {
+        return [];
+    }
+    
     var list = [];
     var items = list_signature.split(",");
     var range_parts;
@@ -52,6 +77,11 @@ function gen_num_list(list_signature)
 
 function gen_list_signature(num_list)
 {
+    if (num_list.length == 0)
+    {
+        return "";
+    }
+    
     var item = num_list[0];
     var prev_item;
     var list_signature = num_list[0];
@@ -81,14 +111,53 @@ function gen_list_signature(num_list)
     return list_signature;
 }
 
+function save_num_lists(num_lists)
+{
+    save(LS_KEY_UNMARKED_LIST, gen_list_signature(num_lists[0]));
+    save(LS_KEY_MARKED_LIST, gen_list_signature(num_lists[1]));
+}
+
 function prev_session_exists()
 {
-    return localStorage.getItem(LS_KEY_SESSION_ID) != null
+    return load(LS_KEY_SESSION_ID) != null
 }
 
 function get_session_id()
 {
-    return localStorage.getItem(LS_KEY_SESSION_ID);
+    return load(LS_KEY_SESSION_ID);
+}
+
+function get_session_num_lists()
+{
+    return [
+        gen_num_list(load(LS_KEY_UNMARKED_LIST)),
+        gen_num_list(load(LS_KEY_MARKED_LIST))
+    ];
+}
+
+function add_items_to_lists(elm_list, data_lists)
+{
+    var node;
+    for (var i = 0; i < elm_list.length; i++)
+    {
+        for (var j = 0; j < data_lists[i].length; j++)
+        {
+            node = document.createElement("li");
+            node.setAttribute("value", data_lists[i][j]);
+            node.innerHTML = data_lists[i][j];
+            elm_list[i].appendChild(node);
+        }
+    }
+}
+
+function get_list_elms()
+{
+    elm_lists = [];
+    for (var i = 0, len = ELM_ID_LISTS.length; i < len; i++)
+    {
+        elm_lists.push(document.querySelector("#" + ELM_ID_LISTS[i]));
+    }
+    return elm_lists;
 }
 
 function cont_prev_session()
@@ -97,6 +166,7 @@ function cont_prev_session()
     if (prev_session_exists())
     {
         log("Connecting to previous session (" + get_session_id() + ")...");
+        init_main_screen();
     }
     else
     {
@@ -112,11 +182,134 @@ function new_session()
     {
         log("Starting new session...");
         var session_id = new Date().getTime();
-        localStorage.setItem(LS_KEY_SESSION_ID, session_id);
+        save(LS_KEY_SESSION_ID, session_id);
         log("New session id: " + session_id);
+        var sig;
+        do
+        {
+            sig = prompt("Please enter a valid number list:");
+        } while (!sig.match(LIST_SIGNATURE_REGEX))
+        save(LS_KEY_UNMARKED_LIST, sig);
+        save(LS_KEY_MARKED_LIST, "");
+        init_main_screen();
     }
     else
     {
         log("Operation canceled by user.");
     }
+}
+
+function remove_all_children(elm)
+{
+    while (elm.lastChild)
+    {
+        elm.removeChild(elm.lastChild);
+    }
+}
+
+function remove_all_children_arr(arr)
+{
+    for (var i = 0, len = arr.length; i < len; i++)
+    {
+        remove_all_children(arr[i]);
+    }
+}
+
+function init_main_screen()
+{
+    list_elms = get_list_elms();
+    session_lists = get_session_num_lists();
+    
+    remove_all_children_arr(list_elms);
+    add_items_to_lists(list_elms, session_lists);
+    
+    show_screen(ELM_ID_MAIN_SCREEN);
+}
+
+function get_elm_by_value(tag, val)
+{
+    return document.querySelector(tag + "[value='" + val + "']");
+}
+
+function add_child_sorted(list, elm)
+{
+    var items = list.childNodes;
+    var len = items.length;
+    var i = 0;
+    while (i < items.length && items[i].value < elm.value)
+    {
+        i++;
+    }
+    
+    if (i == len)
+    {
+        list.appendChild(elm);
+    }
+    else
+    {
+        list.insertBefore(elm, items[i]);
+    }
+}
+
+function move_child_node(lists, elm, from, to)
+{
+    lists[from].removeChild(elm);
+    add_child_sorted(lists[to], elm);
+}
+
+function move_item(num, from, to)
+{
+    item = get_elm_by_value(LIST_ITEM_TAG, num);
+    if (item != null)
+    {
+        move_child_node(get_list_elms(), item, from, to);
+        
+        var num_lists = get_session_num_lists();
+        var item_from_index = num_lists[from].indexOf(num);
+        num_lists[from].splice(item_from_index, 1);
+        num_lists[to].push(num);
+        num_lists[to] = sort(num_lists[to], true);
+        save_num_lists(num_lists);
+    }
+}
+
+function mark_num(num)
+{
+    log("Marking num " + num);
+    move_item(num, 0, 1);
+}
+
+function unmark_num(num)
+{
+    log("Unmarking num " + num);
+    move_item(num, 1, 0);
+}
+
+/* MANAGE SCREENS */
+
+function init()
+{
+    if (prev_session_exists())
+    {
+        show_screen(ELM_ID_MAIN_SCREEN);
+        cont_prev_session();
+    }
+    else
+    {
+        new_session();
+    }
+}
+
+function show_screen(screen_id)
+{
+    screens = document.querySelectorAll(".screen");
+    screen = document.querySelector("#" + screen_id);
+    for (var i = 0, len = screens.length; i < len; i++)
+    {
+        if (screens[i] != screen)
+        {
+            screens[i].style.display = "none";
+        }
+    }
+    screen.style.display = "block";
 }
