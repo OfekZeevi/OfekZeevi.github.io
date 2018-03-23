@@ -46,7 +46,8 @@ h2
 input
 {
     font-size: 8vw;
-    background-color: lightskyblue;
+    background-color: palegreen;
+    width: 95%;
 }
 
 button
