@@ -10,7 +10,21 @@ var ELM_ID_LISTS = ["unmarked-list", "marked-list"];
 var ELM_ID_MAIN_MENU = "main-menu";
 var ELM_ID_MAIN_SCREEN = "main-screen";
 
+var ELM_ID_INPUT = "num-input";
+var ELM_ID_MARK_BTN = "mark-btn";
+
 var LIST_ITEM_TAG = "li";
+
+var MARK_BTN_ONCLICK_SINGLE = "mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''"
+var MARK_BTN_ONCLICK_MULTIPLE = "mark_nums(this.previousElementSibling.value);this.previousElementSibling.value=''"
+
+var INPUT_TYPE_MODE_SINGLE = "tel";
+var INPUT_TYPE_MODE_MULTIPLE = "text";
+
+var INPUT_MODE_SWITCH = {
+    "single": {"type": INPUT_TYPE_MODE_SINGLE, "onclick": MARK_BTN_ONCLICK_SINGLE},
+    "multiple": {"type": INPUT_TYPE_MODE_MULTIPLE, "onclick": MARK_BTN_ONCLICK_MULTIPLE}
+};
 
 init();
 
@@ -276,13 +290,37 @@ function move_item(num, from, to)
 function mark_num(num)
 {
     log("Marking num " + num);
-    move_item(num, 0, 1);
+    move_item(num * 1, 0, 1);
+}
+
+function mark_nums(nums)
+{
+    if (nums.match(LIST_SIGNATURE_REGEX))
+    {
+        log("Marking nums " + nums);
+        num_list = gen_num_list(nums);
+        for (var i = 0, len = num_list.length; i < len; i++)
+        {
+            mark_num(num_list[i]);
+        }
+    }
+    else
+    {
+        alert("Invalid list syntax!");
+    }
 }
 
 function unmark_num(num)
 {
     log("Unmarking num " + num);
     move_item(num, 1, 0);
+}
+
+function set_input_mode(mode)
+{
+    document.querySelector("#" + ELM_ID_INPUT).setAttribute("type", INPUT_MODE_SWITCH[mode]["type"]);
+    document.querySelector("#" + ELM_ID_MARK_BTN).setAttribute("onclick", INPUT_MODE_SWITCH[mode]["onclick"]);
+    log("Set input mode to " + mode);
 }
 
 /* MANAGE SCREENS */

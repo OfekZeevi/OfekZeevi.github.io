@@ -1,4 +1,76 @@
+body
+{
+    
+}
+
 .screen
 {
     display: none;
+}
+
+.striked-list li
+{
+    text-decoration: line-through;
+}
+
+li
+{
+    list-style: none;
+    font-size: 10vw;
+    width: 100%;
+    text-align: center;
+}
+
+ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+h2
+{
+    text-align: center;
+}
+
+.list-wrapper
+{
+    width: 50%;
+    float: left;
+}
+
+.list_wrappers_wrapper
+{
+    display: block;
+}
+
+input
+{
+    font-size: 8vw;
+    background-color: lightskyblue;
+}
+
+button
+{
+    font-size: 8vw;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+input[type=radio]
+{
+    display: none;
+}
+
+label
+{
+    padding: 10px;
+    background-color: lightcyan;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 9vw;
+}
+
+input:checked + label
+{
+    background-color: lightgreen;
 }

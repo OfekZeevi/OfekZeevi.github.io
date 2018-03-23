@@ -4,6 +4,8 @@
     <head>
         
         <meta charset="utf-8"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>Hantar's Little Helper</title>
         
@@ -23,16 +25,35 @@
         
         <div id="main-screen" class="screen">
             
-            <button type="button" onclick="show_screen('main-menu')">Main Menu</button>
+            <button type="button" onclick="show_screen('main-menu')">Main Menu</button><br/>
             
-            <input type="tel" id="num-input" placeholder="Enter number...">
-            <button type="button" onclick="mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''">Mark</button>
+            <br/>
             
-            <h2>Unmarked</h2>
-            <ul id="unmarked-list" onclick="mark_num(event.srcElement.value)"></ul>
+            <input type="radio" name="input-type" id="input-type-single" onclick="set_input_mode('single')" checked>
+            <label for="input-type-single">Single</label>
+            <input type="radio" name="input-type" id="input-type-multiple" onclick="set_input_mode('multiple')">
+            <label for="input-type-multiple">Multiple</label>
             
-            <h2>Marked</h2>
-            <ul id="marked-list" onclick="unmark_num(event.srcElement.value)"></ul>
+            <br/>
+            
+            <input type="tel" id="num-input" placeholder="Enter number..."><br/>
+            <button type="button" onclick="mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''" id="mark-btn">Mark</button>
+            
+            <br/><br/>
+            
+            <hr>
+            
+            <div class="list_wrappers_wrapper">
+                <div id="unmarked-list-wrapper" class="list-wrapper">
+                    <h2>Unmarked</h2>
+                    <ul id="unmarked-list" onclick="mark_num(event.srcElement.value)"></ul>
+                </div>
+
+                <div id="marked-list-wrapper" class="list-wrapper">
+                    <h2>Marked</h2>
+                    <ul id="marked-list" onclick="unmark_num(event.srcElement.value)" class="striked-list"></ul>
+                </div>
+            </div>
         
         </div>
         
