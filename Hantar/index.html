@@ -41,17 +41,22 @@
             
             <br/><br/>
             
+            <input type="checkbox" id="allow-click-chkbx">
+            <label for="allow-click-chkbx">Quick Fixes</label>
+            
+            <br/>
+            
             <hr>
             
             <div class="list_wrappers_wrapper">
                 <div id="unmarked-list-wrapper" class="list-wrapper">
                     <h2>Unmarked</h2>
-                    <ul id="unmarked-list" onclick="mark_num(event.srcElement.value)"></ul>
+                    <ul id="unmarked-list" onclick="mark_num(event.srcElement.value, true)"></ul>
                 </div>
 
                 <div id="marked-list-wrapper" class="list-wrapper">
                     <h2>Marked</h2>
-                    <ul id="marked-list" onclick="unmark_num(event.srcElement.value)" class="striked-list"></ul>
+                    <ul id="marked-list" onclick="unmark_num(event.srcElement.value, true)" class="striked-list"></ul>
                 </div>
             </div>
         

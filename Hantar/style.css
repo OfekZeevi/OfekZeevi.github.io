@@ -50,6 +50,8 @@ input
     width: 95%;
 }
 
+
+
 button
 {
     font-size: 8vw;
@@ -57,7 +59,7 @@ button
     border-radius: 10px;
 }
 
-input[type=radio]
+input[type=radio], input[type=checkbox]
 {
     display: none;
 }
@@ -69,6 +71,12 @@ label
     display: inline-block;
     margin-bottom: 10px;
     font-size: 9vw;
+}
+
+input[type=checkbox] + label
+{
+    font-size: 7vw;
+    background-color: lightcoral;
 }
 
 input:checked + label

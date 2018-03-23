@@ -13,6 +13,8 @@ var ELM_ID_MAIN_SCREEN = "main-screen";
 var ELM_ID_INPUT = "num-input";
 var ELM_ID_MARK_BTN = "mark-btn";
 
+var ELM_ID_QUICK_FIX_CHKBX = "allow-click-chkbx";
+
 var LIST_ITEM_TAG = "li";
 
 var MARK_BTN_ONCLICK_SINGLE = "mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''"
@@ -265,10 +267,30 @@ function add_child_sorted(list, elm)
     }
 }
 
+function contains(arr, item)
+{
+    for (var i = 0, len = arr.length; i < len; i++)
+    {
+        if (arr[i] == item)
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 function move_child_node(lists, elm, from, to)
 {
-    lists[from].removeChild(elm);
-    add_child_sorted(lists[to], elm);
+    if (contains(lists[from].childNodes, elm))
+    {
+        lists[from].removeChild(elm);
+        
+        if (!contains(lists[to].childNodes, elm))
+        {
+            add_child_sorted(lists[to], elm);
+        }
+    }
 }
 
 function move_item(num, from, to)
@@ -280,15 +302,28 @@ function move_item(num, from, to)
         
         var num_lists = get_session_num_lists();
         var item_from_index = num_lists[from].indexOf(num);
-        num_lists[from].splice(item_from_index, 1);
+        if (item_from_index != -1)
+        {
+            num_lists[from].splice(item_from_index, 1);
+        }
         num_lists[to].push(num);
         num_lists[to] = sort(num_lists[to], true);
         save_num_lists(num_lists);
     }
 }
 
-function mark_num(num)
+function allow_quick_edits()
 {
+    return document.querySelector("#" + ELM_ID_QUICK_FIX_CHKBX).checked;
+}
+
+function mark_num(num, is_quick_fix=false)
+{
+    if (is_quick_fix && !allow_quick_edits())
+    {
+        return;
+    }
+    
     log("Marking num " + num);
     move_item(num * 1, 0, 1);
 }
@@ -310,8 +345,13 @@ function mark_nums(nums)
     }
 }
 
-function unmark_num(num)
+function unmark_num(num, is_quick_fix=false)
 {
+    if (is_quick_fix && !allow_quick_edits())
+    {
+        return;
+    }
+    
     log("Unmarking num " + num);
     move_item(num, 1, 0);
 }
