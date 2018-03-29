@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700,700i" rel="stylesheet">
+
+    <head>
+        
+        <meta charset="utf-8"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Hantar's Little Helper</title>
+        
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+    </head>
+    
+    <body>
+        <h3>
+            Hantar's 
+        </h3>
+
+        <h4>
+            Little Helper
+        </h4>
+        
+        <div id="main-menu" class="screen">
+        
+            <button onclick="cont_prev_session()">Continue Previous Session...</button>
+            
+            <button onclick="new_session()">Start a New Session!</button>
+        
+        </div>
+        
+        <div id="main-screen" class="screen">
+            
+            <button type="button" onclick="show_screen('main-menu')">Main Menu</button><br/>
+            
+            <br/>
+            
+            <input type="radio" name="input-type" id="input-type-single" onclick="set_input_mode('single')" checked>
+            <label for="input-type-single">Single</label>
+            <input type="radio" name="input-type" id="input-type-multiple" onclick="set_input_mode('multiple')">
+            <label for="input-type-multiple">Multiple</label>
+            
+            <br/>
+            
+            <input type="tel" id="num-input" placeholder="Enter number...">
+            <button type="button" onclick="mark_num(this.previousElementSibling.value);this.previousElementSibling.value=''" id="mark-btn">Mark</button>
+            
+            <br/><br/>
+            
+            <input type="checkbox" id="allow-click-chkbx">
+            <label for="allow-click-chkbx">Quick Fixes</label>
+            
+            <br/>
+            
+            <hr>
+            
+            <div class="list_wrappers_wrapper">
+                <div id="unmarked-list-wrapper" class="list-wrapper">
+                    <h2>Unmarked</h2>
+                    <ul id="unmarked-list" onclick="mark_num(event.srcElement.value, true)"></ul>
+                </div>
+
+                <div id="marked-list-wrapper" class="list-wrapper">
+                    <h2>Marked</h2>
+                    <ul id="marked-list" onclick="unmark_num(event.srcElement.value, true)" class="striked-list"></ul>
+                </div>
+            </div>
+            
+            <br/>
+            
+            <button onclick="share_to_whatsapp()">Share on Whatsapp</button>
+            
+        </div>
+        
+        <script type="text/javascript" src="code.js"></script>
+        
+    </body>
+
+</html>
