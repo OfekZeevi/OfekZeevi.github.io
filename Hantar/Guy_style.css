@@ -1,0 +1,141 @@
+    
+body
+{
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: black;
+    text-align: center;
+    text-transform: lowercase;
+    font-size: 10pt;
+    font-style: italic;
+}
+
+.screen
+{
+    display: none;
+    
+}
+
+.striked-list li
+{
+    text-decoration: line-through;
+}
+
+li
+{
+    list-style: none;
+    font-size: 15pt;
+    width: 100%;
+    text-align: center;
+}
+
+ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+h2
+{
+    text-align: center;
+}
+
+h3, h4
+{
+  font-size: 72px;
+    margin: 0;
+}
+
+h3{
+    text-transform: uppercase;
+    border: none;
+    font-size: 50pt;
+    font-style: normal;
+    color:beige;
+    background-image: radial-gradient(#000000 55%, #F55536 60%, #FF773D 65%, #FFB238 71%, #000000 70%);
+}
+
+h4{
+    font-size: 30pt;
+    background: -webkit-linear-gradient(#F55536, #FF773D, #FFB238);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.list-wrapper
+{
+    width: 50%;
+    float: left;
+    color: white;
+    font-size: 10pt;
+}
+
+.list_wrappers_wrapper
+{
+    display: block;
+}
+
+input
+{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8vw;
+    color: beige;
+    background-color: black;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    font-weight: 1000;
+    text-transform: lowercase;
+    font-size: 15pt;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-color: beige;
+    border-width: thick;
+}
+
+button
+{
+    font-size: 8vw;
+    background-color: #FF773D;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: lowercase;
+    font-size: 16pt;
+    padding-top: 20px;
+    padding-bottom:20px;
+    padding-left: 60px;    
+    padding-right: 60px;
+    margin: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+input[type=radio], input[type=checkbox]
+{
+    display: none;
+}
+
+label
+{
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 15pt;
+    border-color: beige;
+    border-width: thick;
+    background-color: black;
+    color: grey;
+}
+
+input[type=checkbox] + label
+{
+    background-color: black;
+}
+
+input:checked + label
+{
+    background-color: beige;
+    color: black;
+}
